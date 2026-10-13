@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maduviber — Personal Growth Playground</title>
+    <meta name="description" content="Jelajahi wawasan, buat meme, dan temukan perjalananmu di Maduviber.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main class="container">
+
+        <!-- HALAMAN UTAMA -->
+        <section id="page-home" class="page active">
+
+            <div class="top-label">
+                <span class="brand-dot"></span>
+                MADUVIBER <span class="brand-divider">/</span> YOUR SPACE TO GROW
+            </div>
+
+            <header class="hero-section">
+                <div class="hero-copy">
+                    <p class="eyebrow">SEDIKIT BERMAIN, BANYAK BERTUMBUH</p>
+
+                    <h1>
+                        Bangun jiwamu dengan
+                        <span>menyelesaikan misi kecil hari ini.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Uji wawasanmu, lepaskan sisi absurdmu, dan temukan
+                        sesuatu tentang dirimu di setiap langkah.
+                    </p>
+
+                    <div class="hero-note">
+                        <span class="note-line"></span>
+                        <span>Tidak harus sempurna. Cukup mulai.</span>
+                    </div>
+                </div>
+
+                <!-- Dekorasi visual, bukan navbar atau card -->
+                <div class="hero-art" aria-hidden="true">
+                    <div class="art-orbit orbit-one"></div>
+                    <div class="art-orbit orbit-two"></div>
+
+                    <div class="art-core">
+                        <span class="art-star">✳</span>
+                        <span class="art-word">YOUR<br>VIBE.</span>
+                        <span class="art-caption">DISCOVER SOMETHING NEW</span>
+                    </div>
+
+                    <span class="art-number">01</span>
+                    <span class="art-side-text">PLAY / LEARN / GROW</span>
+                </div>
+            </header>
+
+            <section class="activities">
+                <div class="activities-heading">
+                    <div>
+                        <p class="eyebrow">PILIH LANGKAHMU</p>
+                        <h2>Mulai dari mana?</h2>
+                    </div>
+
+                    <span class="activity-count">02 MISI TERSEDIA</span>
+                </div>
+
+                <div class="menu-buttons">
+
+                    <button
+                        type="button"
+                        class="activity-button activity-primary"
+                        onclick="switchPage('page-meme')"
+                    >
+                        <span class="activity-number">01</span>
+
+                        <span class="activity-label">
+                            <strong>Meme Generator</strong>
+                            <small>Ubah isi kepala jadi meme absurd.</small>
+                        </span>
+
+                        <span class="activity-arrow" aria-hidden="true">↗</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="activity-button"
+                        onclick="switchPage('page-quiz')"
+                    >
+                        <span class="activity-number">02</span>
+
+                        <span class="activity-label">
+                            <strong>Quiz Wawasan</strong>
+                            <small>Seberapa luas wawasanmu?</small>
+                        </span>
+
+                        <span class="activity-arrow" aria-hidden="true">↗</span>
+                    </button>
+
+                    <!-- Baru muncul setelah kedua aktivitas selesai -->
+                    <button
+                        type="button"
+                        id="btn-secret"
+                        class="activity-button activity-secret"
+                        onclick="switchPage('page-secret')"
+                        hidden
+                    >
+                        <span class="activity-number">03</span>
+
+                        <span class="activity-label">
+                            <strong>Tombol Rahasia</strong>
+                            <small id="secret-status">Selesaikan dua misi untuk membuka.</small>
+                        </span>
+
+                        <span class="activity-arrow" aria-hidden="true">↗</span>
+                    </button>
+
+                </div>
+            </section>
+
+            <footer class="home-footer">
+                <span>MADUVIBER (Daffa & Kenzo) © 2026</span>
+                <span>MADE TO EXPLORE YOUR VIBE.</span>
+            </footer>
+
+        </section>
+
+
+        <!-- HALAMAN MEME GENERATOR -->
+        <section id="page-meme" class="page tool-page">
+
+            <button
+                type="button"
+                class="back-btn"
+                onclick="switchPage('page-home')"
+            >
+                ← Kembali
+            </button>
+
+            <p class="eyebrow">MISI 01 / LET YOUR MIND PLAY</p>
+            <h2>Meme Generator <span>Absurd.</span></h2>
+
+            <p class="page-description">
+                Punya kalimat random? Tuangkan saja. Biar semesta yang
+                menentukan meme-nya.
+            </p>
+
+            <div class="meme-box" id="meme-display-box">
+                <div class="meme-text-display" id="display-text">
+                    [ Teksmu akan muncul di sini ]
+                </div>
+
+                <div class="meme-img-placeholder" id="display-asset">
+                    Belum digenerate
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="meme-input">Teks meme kamu</label>
+
+                <input
+                    type="text"
+                    id="meme-input"
+                    placeholder="Contoh: besok mulai produktif..."
+                    autocomplete="off"
+                    maxlength="250"
+                >
+            </div>
+
+            <button
+                type="button"
+                class="btn action-btn"
+                onclick="generateMeme()"
+            >
+                Buat Meme &amp; Mainkan SFX <span>↗</span>
+            </button>
+
+        </section>
+
+
+        <!-- HALAMAN QUIZ -->
+        <section id="page-quiz" class="page tool-page">
+
+            <button
+                type="button"
+                class="back-btn"
+                onclick="switchPage('page-home')"
+            >
+                ← Kembali
+            </button>
+
+            <p class="eyebrow">MISI 02 / FEED YOUR CURIOSITY</p>
+            <h2>Quiz <span>Wawasan.</span></h2>
+
+            <div class="quiz-progress" id="quiz-progress-text">
+                Soal 1 dari 10
+            </div>
+
+            <div id="quiz-container">
+                <div
+                    class="quiz-question"
+                    id="quiz-question-text"
+                >
+                    Loading soal...
+                </div>
+
+                <div
+                    class="quiz-options"
+                    id="quiz-options-container"
+                >
+                    <!-- Pilihan jawaban dimuat melalui JavaScript -->
+                </div>
+            </div>
+
+            <div
+                id="quiz-result-container"
+                class="quiz-result"
+                style="display: none;"
+                aria-live="polite"
+            >
+                <p class="eyebrow">MISI SELESAI</p>
+
+                <h3 id="result-title">Skor Kamu</h3>
+                <p id="result-desc"></p>
+
+                <button
+                    type="button"
+                    class="btn action-btn"
+                    onclick="switchPage('page-home')"
+                >
+                    Kembali ke Beranda <span>↗</span>
+                </button>
+            </div>
+
+        </section>
+
+
+        <!-- HALAMAN RAHASIA -->
+        <section id="page-secret" class="page tool-page">
+
+            <button
+                type="button"
+                class="back-btn"
+                onclick="switchPage('page-home')"
+            >
+                ← Kembali
+            </button>
+
+            <p class="eyebrow">MISI 03 / YOUR JOURNEY</p>
+            <h2>Ini ceritamu <span>sejauh ini.</span></h2>
+
+            <p class="page-description">
+                Setiap langkah kecil meninggalkan sesuatu untuk dikenang.
+            </p>
+
+            <div
+                class="secret-card"
+                id="secret-summary-box"
+            >
+                <!-- Rekap dibuat melalui JavaScript -->
+            </div>
+
+            <button
+                type="button"
+                class="btn reset-btn"
+                onclick="resetData()"
+            >
+                Reset Data / Main Lagi
+            </button>
+
+        </section>
+
+    </main>
+</body>
+</html>
