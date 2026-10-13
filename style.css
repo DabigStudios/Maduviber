@@ -193,7 +193,7 @@ button:disabled {
     width: 230px;
     height: 230px;
     border-radius: 50%;
-    background: var(--yellow);
+    background: var(--text);
     color: var(--bg);
 
     transform: rotate(-9deg);
@@ -225,7 +225,7 @@ button:disabled {
     position: absolute;
     width: 285px;
     height: 285px;
-    border: 1px solid rgba(232, 250, 120, 0.3);
+    border: 1px solid white;
     border-radius: 50%;
 }
 
